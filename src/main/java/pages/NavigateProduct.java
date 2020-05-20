@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.slf4j.LoggerFactory;
+import utils.SeleniumUtils;
 
 import java.util.Properties;
 
@@ -17,6 +18,7 @@ public class NavigateProduct {
 
     private WebElement element = null;
     private Properties properties;
+    private SeleniumUtils seleniumUtils;
 
 
     @FindBy(xpath = "//ul[@class='top-menu']//a[contains(text(),'Electronics')]")
@@ -28,14 +30,24 @@ public class NavigateProduct {
     @FindBy(xpath = "//h1[contains(text(),'Cell phones')]")
     private WebElement cellphoneText;
 
-    public NavigateProduct(WebDriver driver, Properties properties) {
+    public NavigateProduct(WebDriver driver, Properties properties, SeleniumUtils seleniumUtils) {
 
         this.driver = driver;
         this.properties = properties;
+        this.seleniumUtils= seleniumUtils;
 
         AjaxElementLocatorFactory ajaxFactory = new AjaxElementLocatorFactory(driver,
                 10);
         PageFactory.initElements(ajaxFactory, this);
+    }
+
+    public void hoverMouseToElectronicsLink(){
+
+        seleniumUtils.moveToElement(driver, electronicsTab);
+    }
+
+    public void clickCellphones(){
+        cellphonesLink.click();
     }
 
 
