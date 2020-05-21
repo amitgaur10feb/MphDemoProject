@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.ITestContext;
 import org.testng.annotations.BeforeSuite;
 import utils.FileUtils;
+import utils.SeleniumUtils;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -18,6 +19,7 @@ public class TestBase {
 
     public static Properties properties;
     public static WebDriver driver;
+    public static SeleniumUtils seleniumUtils;
 
     public static final Logger logger = LoggerFactory.getLogger(TestBase.class);
 
@@ -31,6 +33,7 @@ public class TestBase {
 
         context.getSuite().getName();
         initWebdriver();
+        seleniumUtils = new SeleniumUtils();
         urlLaunch();
         }
 

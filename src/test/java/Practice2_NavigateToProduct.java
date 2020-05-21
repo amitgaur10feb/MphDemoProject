@@ -5,7 +5,7 @@ import utils.SeleniumUtils;
 
 public class Practice2_NavigateToProduct extends TestBase {
 
-    private SeleniumUtils seleniumUtils;
+
     @Test()
 
     public void navigateToCellphones(){
@@ -13,7 +13,7 @@ public class Practice2_NavigateToProduct extends TestBase {
 
 
         NavigateProduct navigateCellPhone= new NavigateProduct(driver, properties, seleniumUtils);
-        navigateCellPhone.hoverMousetoElectronicsLink();
+        navigateCellPhone.hoverMouseToElectronicsLink();
         navigateCellPhone.clickCellphones();
 
     }
